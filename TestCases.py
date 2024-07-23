@@ -15,18 +15,18 @@ try:
 
     # Step 2: Click on "Connect Wallet"
     connect_wallet_button = wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Connect Wallet')]"))
+        EC.element_to_be_clickable(("xpath", "//button[contains(text(), 'Connect Wallet')]"))
         )
     connect_wallet_button.click()
 
     # Step 2.1: Wait for the modal to appear
     wallet_modal = wait.until(
-        EC.visibility_of_element_located((By.XPATH, "//div[contains(@class, 'wallet-modal')]"))
+        EC.visibility_of_element_located(("xpath", "//div[contains(@class, 'wallet-modal')]"))
 
         )
     # Button for MetaMask with specific text
     metamask_button = wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'MetaMask')]"))
+        EC.element_to_be_clickable(("xpath", "//button[contains(text(), 'MetaMask')]"))
 
         )
     metamask_button.click()
@@ -38,14 +38,14 @@ except Exception as e:
 
     # Step 3: Click on "Sign Message"
     sign_message_button = wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Sign Message')]"))
+        EC.element_to_be_clickable(("xpath", "//button[contains(text(), 'Sign Message')]"))
     )
     sign_message_button.click()
 
 
     # Step 5: Select UI - testing console
     testing_console_link = wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'UI - Testing Console')]"))
+        EC.element_to_be_clickable(("xpath", "//a[contains(text(), 'UI - Testing Console')]"))
     )
     testing_console_link.click()
 
@@ -57,10 +57,10 @@ except Exception as e:
 
     # Step 8: Assert the text below UI testing
     ui_testing_text = wait.until(
-        EC.visibility_of_element_located((By.XPATH, "//div[contains(text(), '$0.00')]"))
+        EC.visibility_of_element_located(("xpath", "//div[contains(text(), '$0.00')]"))
     )
 
-    assert ui_testing_text.is_displayed() and ui_testing_text.text == "$0.00", "Text assertion failed"
+    assert ui_testing_text.is_displayed() and ui_testing_text.text == "$0.00", "Text assertion Passed"
 
 finally:
     driver.quit()
